@@ -6,21 +6,19 @@
     this.percentEntering = percentEntering;
     this.donutsPerEntrant = donutsPerEntrant;
     this.totalDonuts = 0;
-    this.donutsEachHour = [];
 
     this.randomFootTraffic = function() {
       return Math.floor(Math.random() * (this.footTraffic[1] - this.footTraffic[0] + 1)) + this.footTraffic[0];
     }
 
     this.donutsPerHour = function() {
-      return Math.floor(this.randomFootTraffic() * (this.percentEntering / 100) * (this.donutsPerEntrant) + 0.5);
+      return Math.round(this.randomFootTraffic() * (this.percentEntering / 100) * (this.donutsPerEntrant));
     }
 
     this.donutsToBake = function() {
       for (var i = 0; i <= this.hours; i++) {
         console.log(this.name + " location needs " + this.donutsPerHour() + " donuts at hour " + i + ".");
-          this.donutsEachHour[i] = this.donutsPerHour();
-          this.totalDonuts += this.donutsEachHour[i];
+          this.totalDonuts += this.donutsPerHour();
       };
       console.log("Total donuts for " + this.name + ": " + this.totalDonuts);
     };
