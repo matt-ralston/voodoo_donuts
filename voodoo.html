@@ -1,0 +1,42 @@
+<script>
+  function Voodoo(name, hours, footTraffic, percentEntering, donutsPerEntrant) {
+    this.name = name;
+    this.hours = hours;
+    this.footTraffic = footTraffic;
+    this.percentEntering = percentEntering;
+    this.donutsPerEntrant = donutsPerEntrant;
+    this.totalDonuts = 0;
+    this.donutsEachHour = [];
+
+    this.randomFootTraffic = function() {
+      return Math.floor(Math.random() * (this.footTraffic[1] - this.footTraffic[0])) + this.footTraffic[0] + 1;
+    }
+
+    this.donutsPerHour = function() {
+      return Math.floor(this.randomFootTraffic() * (this.percentEntering / 100) * (this.donutsPerEntrant) + 0.5);
+    }
+
+    this.donutsToBake = function() {
+      for (var i = 0; i <= this.hours; i++) {
+        console.log(this.name + " location needs " + this.donutsPerHour() + " donuts at hour " + i + ".");
+          this.donutsEachHour[i] = this.donutsPerHour();
+          this.totalDonuts += this.donutsEachHour[i];
+      };
+      console.log("Total donuts for " + this.name + ": " + this.totalDonuts);
+    };
+  };
+
+  var downtown = new Voodoo('Downtown', 11, [80, 220], 10, 4);
+  var capitol_hill = new Voodoo('Capitol Hill', 11, [5, 45], 45, 2);
+  var south_lake_union = new Voodoo('South Lake Union', 11 [180, 250], 5, 6);
+  var wedgewood = new Voodoo('Wedgewood', 11, [20, 60], 20, 1.5);
+  var ballard = new Voodoo('Ballard', 11, [25, 175], 33, 1)
+
+  downtown.donutsToBake();
+  capitol_hill.donutsToBake();
+  south_lake_union.donutsToBake();
+  wedgewood.donutsToBake();
+  ballard.donutsToBake();
+
+</script>
+
