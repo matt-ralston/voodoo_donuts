@@ -1,38 +1,38 @@
-html {
-    background: url('homerDonut.jpg') no-repeat fixed;
-    background-size: contain;
-}
 
 body {
-    position: relative;
-    height: 100%;
-    width: 100%;
+  background: url('homerDonut.jpg') no-repeat fixed;
+  background-size: contain;
 }
 
 header {
-    font-weight: 600 !important;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 4em;
-    text-align: right;
-    margin-right: 2%;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 50%;
-    float: right;
+  font-weight: 600 !important;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 4em;
+  text-align: right;
+  margin-right: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 50%;
+  float: right;
 }
 
 section {
-    float: right;
-    margin-right: 2%;
-    width: 55%;
-    text-align: center;
-    padding-bottom: 20px;
-    background: rgba(223, 223, 223, .75)
+  margin-right: 2%;
+  text-align: center;
+  padding-bottom: 20px;
+  background: rgba(223, 223, 223, .75);
+  position: absolute;
+  top: 25%;
+  left: 33%;
 }
 
 form {
-    width: 100%
+  width: 80%;
+  height: 60px;
 }
+  #formWrapper {
+    margin: 0 auto;
+  }
 
 input {
   font-size: 20px;
@@ -41,40 +41,71 @@ input {
 }
 
 #donutFatty {
-    padding: 10px 0px;
-
+  padding: 10px 0px;
 }
-#submit {
-    background-color: rgba(232, 140, 195, 1);
-    color: #fff;
-    padding: 10px 50px;
-    border-radius: 5%;
-    border: none;
-    font-size: 24px;
-    margin-right: 2%;
-    margin-bottom: 20px;
-    margin-top: -46px;
-      display: inline;
-      float: right;
+
+#columnHeader {
+  margin-top: -20px;
+  border: 1px solid blue;
+}
+
+button {
+  background-color: rgba(232, 140, 195, 1);
+  color: #fff;
+  font-size: 24px;
+  padding: 10px 50px;
+  border-radius: 5%;
+  border: none;
+  position: relative;
+  left: 180px;
+  top: -47px;
 }
   #submit:hover {
       background-color: rgba(170, 54, 126, 1)
   }
 
 p, label, td {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    font-size: 1em;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
 }
+  label {
+      margin-bottom: -10px;
+  }
 
 th {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 600;
-    font-size: 1em;
-    padding: 5px;
-    padding-bottom: 25px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  font-size: 1em;
+  padding: 5px;
+  padding-bottom: 25px;
 }
 
 td {
   vertical-align: top;
+}
+
+/**********************************************************
+MEDIA QUERIES
+**********************************************************/
+@media screen and (max-width: 479px) {
+
+  header {
+  font-weight: 600 !important;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 2em;
+  }
+
+  .timeHead {
+  display: none;
+  }
+
+}
+
+
+
+@media screen and (min-width: 480px) {
+
+
+
 }
