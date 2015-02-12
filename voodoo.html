@@ -72,22 +72,23 @@
           var cellEl = document.createElement(element);
           cellEl.textContent = data;
           rowEl.appendChild(cellEl);
-          };
+        };
 
         this.donutsToBake = function() {
           var donutsPerHour,
-              totalDonuts = 0;
-          var mydiv = document.getElementById(this.id);
-          while ( mydiv.firstChild ) mydiv.removeChild( mydiv.firstChild );
+              totalDonuts = 0,
+              rowEl = document.getElementById(this.id);
+
+          while (rowEl.firstChild) rowEl.removeChild(rowEl.firstChild);
+
           this.createCell(this.name, 'th');
+
           for (var i = 0; i <= this.hours; i++) {
             donutsPerHour = this.donutsPerHour();
             totalDonuts += donutsPerHour;
-            // console.log(this.name + " location needs " + this.donutsPerHour() + " donuts at hour " + i + ".");
             this.createCell(donutsPerHour, 'td');
-
           };
-          // console.log("Total donuts for " + this.name + ": " + this.totalDonuts);
+
           this.createCell(totalDonuts, 'td');
         };
       };
@@ -98,18 +99,30 @@
       var wedgewood = new Voodoo('Wedgewood', 'wedgewood', 11, [20, 60], 20, 1.5);
       var ballard = new Voodoo('Ballard', 'ballard', 11, [25, 175], 33, 1);
 
-      function update() {
-        var fattyEl = document.getElementById('donutFatty');
-        this.donutsPerEntrant = parseInt(fattyEl.value);
+      function update(event) {
+        event.preventDefault();
+
+        var fattyEl = document.getElementById('donutFatty'),
+            userInput = parseInt(fattyEl.value) || 1;
+
+        downtown.donutsPerEntrant = userInput
         downtown.donutsToBake();
-        ballard.donutsToBake();
-        wedgewood.donutsToBake();
-        south_lake_union.donutsToBake();
+
+        capitol_hill.donutsPerEntrant = userInput
         capitol_hill.donutsToBake();
+
+        south_lake_union.donutsPerEntrant = userInput
+        south_lake_union.donutsToBake();
+
+        wedgewood.donutsPerEntrant = userInput
+        wedgewood.donutsToBake();
+
+        ballard.donutsPerEntrant = userInput
+        ballard.donutsToBake();
       };
 
       var btn = document.getElementById('submit');
-          btn.addEventListener('click', update, false);
+      btn.addEventListener('click', update, false);
 
       function whatAFatty() {
         var elMsg = document.getElementById('fatty');
@@ -120,9 +133,9 @@
           elMsg.textContent = '';
         }
       };
+
       var elUsername = document.getElementById('donutFatty');
       elUsername.addEventListener('focus', whatAFatty, false);
-
     </script>
   </body>
 </html>
