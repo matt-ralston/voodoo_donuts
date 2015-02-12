@@ -2,11 +2,14 @@
 <html>
   <head>
     <title>Voodoo Donuts</title>
+    <link rel="stylesheet" href="main.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <h1>Voodoo Donuts Baking Simulator</h1>
+    <header>Voodoo Donuts Baking Simulator</header>
     <section>
-      <p>Enter the average number of donuts you typically sell per customer and click Submit!</p>
+      <p>Enter the average number of donuts you typically sell per customer.</p>
+      <p>Then click Submit!</p>
       <form>
         <label for="username">Donuts: </label>
         <input type="text" id="donutFatty" />
@@ -87,7 +90,6 @@
           // console.log("Total donuts for " + this.name + ": " + this.totalDonuts);
           this.createCell(totalDonuts, 'td');
         };
-
       };
 
       var downtown = new Voodoo('Downtown', 'downtown', 11, [80, 220], 10, 4);
@@ -96,42 +98,30 @@
       var wedgewood = new Voodoo('Wedgewood', 'wedgewood', 11, [20, 60], 20, 1.5);
       var ballard = new Voodoo('Ballard', 'ballard', 11, [25, 175], 33, 1);
 
-// function updateTable() {
-//   downtown.donutsToBake();
-//   capitol_hill.donutsToBake();
-//   south_lake_union.donutsToBake();
-//   wedgewood.donutsToBake();
-//   ballard.donutsToBake();
-// };
+      function update() {
+        var fattyEl = document.getElementById('donutFatty');
+        this.donutsPerEntrant = parseInt(fattyEl.value);
+        downtown.donutsToBake();
+        ballard.donutsToBake();
+        wedgewood.donutsToBake();
+        south_lake_union.donutsToBake();
+        capitol_hill.donutsToBake();
+      };
 
-// document.getElementById("clickMe").addEventListener("click", updateTable)
+      var btn = document.getElementById('submit');
+          btn.addEventListener('click', update, false);
 
-    function update() {
-      var fattyEl = document.getElementById('donutFatty');
-      this.donutsPerEntrant = parseInt(fattyEl.value);
-      downtown.donutsToBake();
-      ballard.donutsToBake();
-      wedgewood.donutsToBake();
-      south_lake_union.donutsToBake();
-      capitol_hill.donutsToBake();
-    };
+      function whatAFatty() {
+        var elMsg = document.getElementById('fatty');
 
-    var btn = document.getElementById('submit');
-        btn.addEventListener('click', update, false);
-
-
-
-    function whatAFatty() {
-      var elMsg = document.getElementById('fatty');
-
-      if (this.value > 3) {
-        elMsg.textContent = 'What a fatty.';
-      } else {
-        elMsg.textContent = '';
-      }
-    };
-    var elUsername = document.getElementById('donutFatty');
-    elUsername.addEventListener('focus', whatAFatty, false);
+        if (this.value > 3) {
+          elMsg.textContent = 'What a fatty.';
+        } else {
+          elMsg.textContent = '';
+        }
+      };
+      var elUsername = document.getElementById('donutFatty');
+      elUsername.addEventListener('focus', whatAFatty, false);
 
     </script>
   </body>
