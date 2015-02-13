@@ -7,17 +7,23 @@
   </head>
   <body>
     <header>Voodoo Donuts Baking Simulator</header>
-    <section>
-      <div id="form">
+    <section id="form">
+
+    
         <p>Enter the average number of donuts you typically sell per customer.</p>
         <p>Then click Submit!</p>
+        
+
         <div id="userInput">
-          <label>Donuts: </label>
-          <input type="text" id="donutFatty" />
+          <label>Donuts:
+            <input type="text" id="donutFatty" />
+            <button id="submit">Submit</button>
             <div id="fatty"></div>
-          <button id="submit">Submit</button>
+          </label>
+
+
         </div>
-      </div>
+
         <table id="voodooTable">
           <tr id="columnHeader">
             <th>Location</th>
@@ -51,6 +57,8 @@
             <th>Ballard</th>
           </tr>
         </table>
+
+       
 
     </section>
     <script>

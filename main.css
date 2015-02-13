@@ -16,26 +16,16 @@ header {
   float: right;
 }
 
-section {
-  margin-right: 2%;
-  padding-bottom: 20px;
-  padding-top: 20px;
+section#form {
   background: rgba(223, 223, 223, .75);
-  position: relative;
-  top: 150px;
-  left: 40%;
-  width: 60%;
+  position: absolute;
+  top: 160px;
+  left: 600px;  
+  text-align: center;
 }
 
 #userInput {
-  width: 300px;
-}
-
-#form {
-  border: 2px solid blue;
-  width: 50%;
-  margin: 0 auto;
-  text-align: center;
+  width: 600px;
 }
 
 input {
@@ -72,6 +62,8 @@ p, label, td {
 }
   label {
       margin-bottom: -10px;
+      margin-left: auto;
+      margin-right: auto;
   }
 
 th {
