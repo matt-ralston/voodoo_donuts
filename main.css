@@ -18,21 +18,25 @@ header {
 
 section {
   margin-right: 2%;
-  text-align: center;
   padding-bottom: 20px;
+  padding-top: 20px;
   background: rgba(223, 223, 223, .75);
-  position: absolute;
-  top: 25%;
-  left: 33%;
+  position: relative;
+  top: 150px;
+  left: 40%;
+  width: 60%;
 }
 
-form {
-  width: 80%;
-  height: 60px;
+#userInput {
+  width: 300px;
 }
-  #formWrapper {
-    margin: 0 auto;
-  }
+
+#form {
+  border: 2px solid blue;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
 
 input {
   font-size: 20px;
@@ -56,9 +60,6 @@ button {
   padding: 10px 50px;
   border-radius: 5%;
   border: none;
-  position: relative;
-  left: 180px;
-  top: -47px;
 }
   #submit:hover {
       background-color: rgba(170, 54, 126, 1)
@@ -98,6 +99,23 @@ MEDIA QUERIES
 
   .timeHead {
   display: none;
+  }
+
+  section {
+    margin-top: 160px;
+  }
+
+  label {
+    margin-bottom: 15px;
+  }
+
+  button {
+    top: 20px;
+    left: 25px;
+    background-color: rgba(232, 140, 195, 1);
+    color: #fff;
+    font-size: 16px;
+    padding: 5px 25px;
   }
 
 }

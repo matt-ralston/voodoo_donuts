@@ -8,47 +8,50 @@
   <body>
     <header>Voodoo Donuts Baking Simulator</header>
     <section>
-      <p>Enter the average number of donuts you typically sell per customer.</p>
-      <p>Then click Submit!</p>
-      <form>
-        <label>Donuts: </label>
-        <input type="text" id="donutFatty" />
-          <div id="fatty"></div>
-        <button id="submit">Submit</button>
-      </form>
-      <table id="voodooTable">
-        <tr id="columnHeader">
-          <th>Location</th>
-          <th class="timeHead">7 am</th>
-          <th class="timeHead">8 am</th>
-          <th class="timeHead">9 am</th>
-          <th class="timeHead">10 am</th>
-          <th class="timeHead">11 am</th>
-          <th class="timeHead">12 pm</th>
-          <th class="timeHead">1 pm</th>
-          <th class="timeHead">2 pm</th>
-          <th class="timeHead">3 pm</th>
-          <th class="timeHead">4 pm</th>
-          <th class="timeHead">5 pm</th>
-          <th class="timeHead">6 pm</th>
-          <th>TOTAL</th>
-        </tr>
-        <tr id="downtown">
-          <th>Downtown</th>
-        </tr>
-        <tr id="capitol_hill">
-          <th>Capitol Hill</th>
-        </tr>
-        <tr id="south_lake_union">
-          <th>South Lake Union</th>
-        </tr>
-        <tr id="wedgewood">
-          <th>Wedgewood</th>
-        </tr>
-        <tr id="ballard">
-          <th>Ballard</th>
-        </tr>
-      </table>
+      <div id="form">
+        <p>Enter the average number of donuts you typically sell per customer.</p>
+        <p>Then click Submit!</p>
+        <div id="userInput">
+          <label>Donuts: </label>
+          <input type="text" id="donutFatty" />
+            <div id="fatty"></div>
+          <button id="submit">Submit</button>
+        </div>
+      </div>
+        <table id="voodooTable">
+          <tr id="columnHeader">
+            <th>Location</th>
+            <th class="timeHead">7 am</th>
+            <th class="timeHead">8 am</th>
+            <th class="timeHead">9 am</th>
+            <th class="timeHead">10 am</th>
+            <th class="timeHead">11 am</th>
+            <th class="timeHead">12 pm</th>
+            <th class="timeHead">1 pm</th>
+            <th class="timeHead">2 pm</th>
+            <th class="timeHead">3 pm</th>
+            <th class="timeHead">4 pm</th>
+            <th class="timeHead">5 pm</th>
+            <th class="timeHead">6 pm</th>
+            <th>TOTAL</th>
+          </tr>
+          <tr id="downtown">
+            <th>Downtown</th>
+          </tr>
+          <tr id="capitol_hill">
+            <th>Capitol Hill</th>
+          </tr>
+          <tr id="south_lake_union">
+            <th>South Lake Union</th>
+          </tr>
+          <tr id="wedgewood">
+            <th>Wedgewood</th>
+          </tr>
+          <tr id="ballard">
+            <th>Ballard</th>
+          </tr>
+        </table>
+
     </section>
     <script>
       function Voodoo(name, id, hours, footTraffic, percentEntering, donutsPerEntrant) {
