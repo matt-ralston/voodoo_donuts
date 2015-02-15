@@ -2,35 +2,38 @@
 <html>
   <head>
     <title>Voodoo Donuts</title>
+    <link href="favicon.ico" rel="icon" type="image/x-icon" />
     <link rel="stylesheet" href="main.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <header>Voodoo Donuts Baking Simulator</header>
-    <section>
+      <img id="homer" src="homer.jpg">
+    <section id="form">
       <p>Enter the average number of donuts you typically sell per customer.</p>
       <p>Then click Submit!</p>
-      <form>
-        <label for="username">Donuts: </label>
-        <input type="text" id="donutFatty" />
+      <div id="userInput">
+        <label>Donuts:
+          <input type="text" id="donutFatty" />
+          <button id="submit">Submit</button>
           <div id="fatty"></div>
-        <button id="submit">Submit</button>
-      </form>
+        </label>
+      </div>
       <table id="voodooTable">
         <tr id="columnHeader">
           <th>Location</th>
-          <th>7 am</th>
-          <th>8 am</th>
-          <th>9 am</th>
-          <th>10 am</th>
-          <th>11 am</th>
-          <th>12 pm</th>
-          <th>1 pm</th>
-          <th>2 pm</th>
-          <th>3 pm</th>
-          <th>4 pm</th>
-          <th>5 pm</th>
-          <th>6 pm</th>
+          <th class="timeHead">7 am</th>
+          <th class="timeHead">8 am</th>
+          <th class="timeHead">9 am</th>
+          <th class="timeHead">10 am</th>
+          <th class="timeHead">11 am</th>
+          <th class="timeHead">12 pm</th>
+          <th class="timeHead">1 pm</th>
+          <th class="timeHead">2 pm</th>
+          <th class="timeHead">3 pm</th>
+          <th class="timeHead">4 pm</th>
+          <th class="timeHead">5 pm</th>
+          <th class="timeHead">6 pm</th>
           <th>TOTAL</th>
         </tr>
         <tr id="downtown">
@@ -72,22 +75,23 @@
           var cellEl = document.createElement(element);
           cellEl.textContent = data;
           rowEl.appendChild(cellEl);
-          };
+        };
 
         this.donutsToBake = function() {
           var donutsPerHour,
-              totalDonuts = 0;
-          var mydiv = document.getElementById(this.id);
-          while ( mydiv.firstChild ) mydiv.removeChild( mydiv.firstChild );
+              totalDonuts = 0,
+              rowEl = document.getElementById(this.id);
+
+          while (rowEl.firstChild) rowEl.removeChild(rowEl.firstChild);
+
           this.createCell(this.name, 'th');
+
           for (var i = 0; i <= this.hours; i++) {
             donutsPerHour = this.donutsPerHour();
             totalDonuts += donutsPerHour;
-            // console.log(this.name + " location needs " + this.donutsPerHour() + " donuts at hour " + i + ".");
             this.createCell(donutsPerHour, 'td');
-
           };
-          // console.log("Total donuts for " + this.name + ": " + this.totalDonuts);
+
           this.createCell(totalDonuts, 'td');
         };
       };
@@ -98,18 +102,31 @@
       var wedgewood = new Voodoo('Wedgewood', 'wedgewood', 11, [20, 60], 20, 1.5);
       var ballard = new Voodoo('Ballard', 'ballard', 11, [25, 175], 33, 1);
 
-      function update() {
-        var fattyEl = document.getElementById('donutFatty');
-        this.donutsPerEntrant = parseInt(fattyEl.value);
+      function update(event) {
+        event.preventDefault();
+
+        var fattyEl = document.getElementById('donutFatty'),
+            userInput = parseInt(fattyEl.value) || 1;
+
+        downtown.donutsPerEntrant = userInput
         downtown.donutsToBake();
-        ballard.donutsToBake();
-        wedgewood.donutsToBake();
-        south_lake_union.donutsToBake();
+
+        capitol_hill.donutsPerEntrant = userInput
         capitol_hill.donutsToBake();
+
+        south_lake_union.donutsPerEntrant = userInput
+        south_lake_union.donutsToBake();
+
+        wedgewood.donutsPerEntrant = userInput
+        wedgewood.donutsToBake();
+
+        ballard.donutsPerEntrant = userInput
+        ballard.donutsToBake();
       };
 
       var btn = document.getElementById('submit');
-          btn.addEventListener('click', update, false);
+      btn.addEventListener('click', update, false);
+
 
       function whatAFatty() {
         var elMsg = document.getElementById('fatty');
@@ -120,9 +137,9 @@
           elMsg.textContent = '';
         }
       };
-      var elUsername = document.getElementById('donutFatty');
-      elUsername.addEventListener('focus', whatAFatty, false);
 
+      var elUsername = document.getElementById('donutFatty');
+      elUsername.addEventListener('blur', whatAFatty, false);
     </script>
   </body>
 </html>
