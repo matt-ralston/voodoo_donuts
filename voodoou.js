@@ -68,9 +68,8 @@ function update(event) {
   ballard.donutsToBake();
 };
 
-// var btn = document.getElementById('submit');
-// btn.addEventListener('click', update, false);
-$('fatty').on('click' update);
+var btn = document.getElementById('submit');
+btn.addEventListener('click', update, false);
 
 function whatAFatty() {
   var elMsg = document.getElementById('fatty');
@@ -84,3 +83,4 @@ function whatAFatty() {
 
 var elUsername = document.getElementById('donutFatty');
 elUsername.addEventListener('blur', whatAFatty, false);
+
